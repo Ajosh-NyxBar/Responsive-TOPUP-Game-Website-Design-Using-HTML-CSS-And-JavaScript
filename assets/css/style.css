@@ -328,3 +328,65 @@ filter: var(--shadow-small-img);
 .yangAda__card:nth-child(even) .yangAda__box{
   order: 1;
 }
+
+/* POPULAR */
+
+.popular{
+  background-color: var(--body-color-alt);
+}
+
+.popular__container{
+  padding-block: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.5rem 1.5rem;
+}
+
+.popular__card{
+ position: relative;
+ background-color: var(--container-color);
+ padding: 6rem .75rem 1rem;
+ border-radius: 1rem;
+ border: 4px solid var(--first-color);
+ z-index: 1;
+}
+
+.popular__img{
+  position: absolute;
+  top: -1.3rem;
+  left: 0;
+  right: 0;
+  width: 120px;
+  margin: 0 auto;
+  filter: var(--shadow-small-img);
+  transition: transform .4s;
+}
+
+.popular__title{
+  font-size: var(--normal-font-size);
+  margin-bottom: .5rem;
+}
+
+.popular__price{
+  font-size: var(--h2-font-size);
+  color: var(--title-color);
+  font-family: var(--second-font);
+}
+
+.popular__button {
+  position: absolute;
+  right: .75rem;
+  outline: none;
+  border: none;
+  background-color: var(--second-color);
+  color: var(--white-color);
+  padding: 6px;
+  border-radius: .5rem;
+  font-size: 1.25rem;
+  display: inline-flex;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.popular__card:hover .popular__img {
+  transform: translateY(-.5rem);
+}
