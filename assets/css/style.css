@@ -121,12 +121,17 @@ img {
   overflow: hidden;
 }
 
+.header-bg{
+  box-shadow: 0 4px 16px hsla(22, 100%, 8%, .2);
+}
+
 /* HEADER dan NAV */
 .header {
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
+  background-color: var(--body-color);
   z-index: var(--z-fixed);
   transition: box-shadow 0.4s;
 }
