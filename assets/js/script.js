@@ -32,7 +32,11 @@ const scrollHeader = () =>{
 window.addEventListener('scroll', scrollHeader);
 
 /*=============== SHOW SCROLL UP ===============*/ 
-
+const scrollUp = () =>{
+    const scrollUp = document.getElementById('scroll-up');
+    this.scrollY >= 350 ? scrollUp.classList.add('scrollup') : scrollUp.classList.remove('scrollup');
+}
+window.addEventListener('scroll', scrollUp);
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 
