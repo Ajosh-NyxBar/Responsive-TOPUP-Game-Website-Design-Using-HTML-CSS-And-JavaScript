@@ -1,16 +1,16 @@
 /*=============== SHOW MENU ===============*/
-const navMenu =document.getElementById('nav-menu');
-const navToggle =document.getElementById('nav-toggle');
-const navClose =document.getElementById('nav-close');
+const navMenu = document.getElementById('nav-menu');
+const navToggle = document.getElementById('nav-toggle');
+const navClose = document.getElementById('nav-close');
 
-if(navToggle){
-    navToggle.addEventListener('click', ()=>{
+if (navToggle) {
+    navToggle.addEventListener('click', () => {
         navMenu.classList.add('show-menu');
     });
 }
 
-if(navClose){
-    navClose.addEventListener('click', ()=>{
+if (navClose) {
+    navClose.addEventListener('click', () => {
         navMenu.classList.remove('show-menu');
     });
 }
@@ -18,27 +18,45 @@ if(navClose){
 /*=============== REMOVE MENU MOBILE ===============*/
 const navLink = document.querySelectorAll('.nav__link');
 
-const linkAction = () =>{
+const linkAction = () => {
     const navMenu = document.getElementById('nav-menu');
     navMenu.classList.remove('show-menu');
 }
 navLink.forEach(n => n.addEventListener('click', linkAction));
 
 /*=============== ADD SHADOW HEADER ===============*/
-const scrollHeader = () =>{
+const scrollHeader = () => {
     const header = document.getElementById('header');
-    this.scrollY >= 50 ? header.classList.add('header-bg') : header.classList.remove('header-bg');
+    window.scrollY >= 50 ? header.classList.add('header-bg') : header.classList.remove('header-bg');
 }
 window.addEventListener('scroll', scrollHeader);
 
 /*=============== SHOW SCROLL UP ===============*/ 
-const scrollUp = () =>{
+const scrollUp = () => {
     const scrollUp = document.getElementById('scroll-up');
-    this.scrollY >= 350 ? scrollUp.classList.add('scrollup') : scrollUp.classList.remove('scrollup');
+    window.scrollY >= 350 ? scrollUp.classList.add('scrollup') : scrollUp.classList.remove('scrollup');
 }
 window.addEventListener('scroll', scrollUp);
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
+const sections = document.querySelectorAll('section[id]');
 
+const scrollActive = () => {
+    const scrollDown = window.scrollY;
+
+    sections.forEach(current => {
+        const sectionHeight = current.offsetHeight,
+            sectionTop = current.offsetTop - 50,
+            sectionId = current.getAttribute('id'),
+            sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']');
+
+        if (scrollDown >= sectionTop && scrollDown <= sectionTop + sectionHeight) {
+            sectionsClass.classList.add('active-link');
+        } else {
+            sectionsClass.classList.remove('active-link');
+        }
+    })
+}
+window.addEventListener('scroll', scrollActive);
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
